@@ -26,6 +26,7 @@ public:
 		if (!entity->HasComponent<TransformComponent>())
 			entity->AddComponent<TransformComponent>();
 		transform = &entity->GetComponent<TransformComponent>();
+		RPG_GAME::colliders.push_back(this);
 	}
 	void Update() override {
 		collider.x = static_cast<int>(transform->position.x);

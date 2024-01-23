@@ -154,6 +154,7 @@
     <ClInclude Include="inc\ECS\Components.hpp" />
     <ClInclude Include="inc\ECS\ECS.hpp" />
     <ClInclude Include="inc\ECS\KeyboardController.hpp" />
+    <ClInclude Include="inc\ECS\TileComponent.hpp" />
     <ClInclude Include="inc\ECS\TransformComponent.hpp" />
     <ClInclude Include="inc\ECS\SpriteComponent.hpp" />
     <ClInclude Include="inc\FrameLimiter.hpp" />

@@ -20,6 +20,12 @@ Manager manager;
 auto& Player(manager.AddEntity());
 auto& Wall(manager.AddEntity());
 
+auto& Tile0(manager.AddEntity());
+auto& Tile1(manager.AddEntity());
+auto& Tile2(manager.AddEntity());
+
+
+std::vector<ColliderComponent*> RPG_GAME::colliders;
 SDL_Renderer* RPG_GAME::Renderer = nullptr;
 SDL_Event RPG_GAME::event;
 
@@ -54,6 +60,13 @@ void RPG_GAME::Init(const char* title, int xPos, int yPos, int width, int height
 
 	// TODO: Abstract
 	map = new Map();
+
+	Tile0.AddComponent<TileComponent>(200, 200, 32, 32, 0);
+	Tile0.AddComponent<ColliderComponent>("Dirt");
+	Tile1.AddComponent<TileComponent>(250, 250, 32, 32, 1);
+	Tile1.AddComponent<ColliderComponent>("Grass");
+	Tile2.AddComponent<TileComponent>(150, 150, 32, 32, 2);
+
 	Player.AddComponent<TransformComponent>(0, 0);
 	Player.AddComponent<SpriteComponent>("assets/Player.bmp");
 	Player.AddComponent<KeyboardController>();
@@ -79,27 +92,16 @@ void RPG_GAME::Update() {
 	// TODO:
 	manager.Update();
 
-	if (Collision::AABB(Player.GetComponent<ColliderComponent>().collider,
-											Wall.GetComponent<ColliderComponent>().collider)) {
-		std::cout << "Wall Hit !!!\n";
-		Player.GetComponent<TransformComponent>().velocity * -1;
+	for (auto cc : colliders) {
+		Collision::AABB(Player.GetComponent<ColliderComponent>(), *cc);
 	}
-
-	std::cout 
-		<< "Player: "
-		<< Player.GetComponent<ColliderComponent>().collider.x << ","
-		<< Player.GetComponent<ColliderComponent>().collider.y
-		<< " Wall: "
-		<< Wall.GetComponent<ColliderComponent>().collider.x << ","
-		<< Wall.GetComponent<ColliderComponent>().collider.y
-		<< "\n";
 }
 
 void RPG_GAME::Render() {
 	SDL_RenderClear(Renderer);
 
 	// TODO:
-	map->DrawMap();
+	//map->DrawMap();
 	manager.Draw();
 
 	SDL_RenderPresent(Renderer);

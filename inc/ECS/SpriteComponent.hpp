@@ -8,6 +8,7 @@
 
 #pragma once
 #include "ECS/ECS.hpp"
+#include "TextureManager.hpp"
 #include <SDL.h>
 
 class SpriteComponent : public Component {

@@ -9,7 +9,10 @@
 #pragma once
 #include <SDL.h>
 
+class ColliderComponent;
+
 class Collision {
 public:
 	static bool AABB(const SDL_Rect&, const SDL_Rect&);
+	static bool AABB(const ColliderComponent&, const ColliderComponent&);
 };

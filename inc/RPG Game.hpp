@@ -9,9 +9,13 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
+#include <vector>
+
+class ColliderComponent;
 
 class RPG_GAME {
 public:
+	static std::vector<ColliderComponent*> colliders;
 	static SDL_Renderer* Renderer;
 	static SDL_Event event;
 
