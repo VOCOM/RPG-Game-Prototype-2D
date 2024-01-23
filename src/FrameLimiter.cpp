@@ -2,6 +2,10 @@
 
 Uint32 FrameLimiter::FPS = 60;
 
+void FrameLimiter::SetFPS(Uint32 newFPS) {
+	FPS = newFPS;
+}
+
 FrameLimiter::FrameLimiter() : frameDelay((Uint64)1000 / FPS), frameStart(SDL_GetTicks64()), frameTime() {
 	/* Empty by Design */
 }

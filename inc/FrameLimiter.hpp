@@ -12,6 +12,8 @@ class FrameLimiter {
 public:
 	static Uint32 FPS;
 	
+	static void SetFPS(Uint32);
+
 	FrameLimiter();
 	~FrameLimiter();
 

@@ -1,13 +1,15 @@
 /*****************************************************************//**
- * \file   Components.hpp
+ * \file   Collision.hpp
  * \brief  
  * 
  * \author Muhammad Syamim
- * \date   21/01/2024
+ * \date   23/01/2024
  *********************************************************************/
 
 #pragma once
-#include "TransformComponent.hpp"
-#include "SpriteComponent.hpp"
-#include "KeyboardController.hpp"
-#include "ColliderComponent.hpp"
+#include <SDL.h>
+
+class Collision {
+public:
+	static bool AABB(const SDL_Rect&, const SDL_Rect&);
+};

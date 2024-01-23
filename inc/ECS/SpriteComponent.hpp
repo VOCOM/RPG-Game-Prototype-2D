@@ -8,7 +8,7 @@
 
 #pragma once
 #include "ECS/ECS.hpp"
-#include "SDL.h"
+#include <SDL.h>
 
 class SpriteComponent : public Component {
 public:
@@ -17,17 +17,22 @@ public:
 		SetTexture(filepath);
 	}
 
+	~SpriteComponent() {
+		SDL_DestroyTexture(texture);
+	}
+
 	void Init() override {
 		transform = &entity->GetComponent<TransformComponent>();
 
 		srcRect.x = srcRect.y = 0;
-		srcRect.w = srcRect.h = 32;
-
-		dstRect.w = dstRect.h = 32;
+		srcRect.w = transform->width;
+		srcRect.h = transform->height;
 	}
 	void Update() override {
-		dstRect.x = (int)transform->position.x;
-		dstRect.y = (int)transform->position.y;
+		dstRect.x = static_cast<int>(transform->position.x);
+		dstRect.y = static_cast<int>(transform->position.y);
+		dstRect.w = transform->width * transform->scale;
+		dstRect.h = transform->height * transform->scale;
 	}
 	void Draw() override {
 		TextureManager::Draw(texture, srcRect, dstRect);

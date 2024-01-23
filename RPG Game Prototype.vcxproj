@@ -139,6 +139,7 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
     <ClCompile Include="src\FrameLimiter.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -148,6 +149,8 @@
     <ClCompile Include="src\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Collision.hpp" />
+    <ClInclude Include="inc\ECS\ColliderComponent.hpp" />
     <ClInclude Include="inc\ECS\Components.hpp" />
     <ClInclude Include="inc\ECS\ECS.hpp" />
     <ClInclude Include="inc\ECS\KeyboardController.hpp" />

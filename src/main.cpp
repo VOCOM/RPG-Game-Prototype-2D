@@ -23,6 +23,8 @@ int main(int argc, char** argv) {
 	gameInstance->Init(Title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
 										 StartupSize.width, StartupSize.height, StartupSize.isFullscreen);
 
+	FrameLimiter::SetFPS(60);
+
 	while (gameInstance->Running()) {
 		FrameLimiter FPSLimiter;
 
