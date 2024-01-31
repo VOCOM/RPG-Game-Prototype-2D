@@ -139,6 +139,7 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ECS\ECS.cpp" />
     <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
     <ClCompile Include="src\FrameLimiter.cpp" />

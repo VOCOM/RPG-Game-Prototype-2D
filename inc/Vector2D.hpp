@@ -21,23 +21,27 @@ public:
 
 	Vector2D& Zero();
 
-	Vector2D& Add(const Vector2D&);
-	Vector2D& Subtract(const Vector2D&);
-	Vector2D& Multiply(const Vector2D&);
-	Vector2D& Divide(const Vector2D&);
+	// Scalar arithmetic
+	Vector2D operator+(const int&);
+	Vector2D operator-(const int&);
+	Vector2D operator*(const int&);
+	Vector2D operator/(const int&);
 
-	friend Vector2D& operator+(Vector2D&, const Vector2D&);
-	friend Vector2D& operator-(Vector2D&, const Vector2D&);
-	friend Vector2D& operator*(Vector2D&, const Vector2D&);
-	friend Vector2D& operator/(Vector2D&, const Vector2D&);
+	Vector2D& operator+=(const int&);
+	Vector2D& operator-=(const int&);
+	Vector2D& operator*=(const int&);
+	Vector2D& operator/=(const int&);
 
-	Vector2D& operator*(const int&);
-
+	// Vector arithmetic
+	Vector2D operator+(const Vector2D&);
+	Vector2D operator-(const Vector2D&);
+	Vector2D operator*(const Vector2D&);
+	Vector2D operator/(const Vector2D&);
+	
 	Vector2D& operator+=(const Vector2D&);
 	Vector2D& operator-=(const Vector2D&);
 	Vector2D& operator*=(const Vector2D&);
 	Vector2D& operator/=(const Vector2D&);
-
 
 	friend std::ostream& operator<<(std::ostream&, const Vector2D&);
 };
